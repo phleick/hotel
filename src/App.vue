@@ -1,26 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
-</script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+    <div id="app">
+      <div class="d-flex justify-content-between mt-5">
+        <button class="btn btn-primary" @click="goTo('TelaPrincipal')">Tela Principal</button>
+        <button class="btn btn-primary" @click="goTo('CadastroCliente')">Cadastro de Cliente</button>
+        <button class="btn btn-primary" @click="goTo('PainelAdmin')">Painel Admin</button>
+        <button class="btn btn-primary" @click="goTo('QuartosHotel')">Quartos Hotel</button>
+      </div>
+      <router-view></router-view>
+    </div>
+  </template>
+  
+  <script>
+  export default {
+    name: "App",
+    methods: {
+      goTo(routeName) {
+        this.$router.push({ name: routeName });
+      },
+    },
+  };
+  </script>
